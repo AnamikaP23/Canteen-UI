@@ -32,7 +32,7 @@ class Order
             {
                 try
                 {
-                    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bfc","root","Anamika12F");
+                    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bfc","root","Passwrd");
                     Statement stmt=con.createStatement();
                     PreparedStatement ps = con.prepareStatement("SELECT foodid,price FROM menu WHERE fname = ?");
                     ps.setString(1, text);
@@ -56,7 +56,7 @@ class Order
                             pay.setEnabled(false);
                             try 
                             {
-                                Connection con2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/bfc", "root", "Anamika12F");
+                                Connection con2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/bfc", "root", "Passwrd");
                                 Statement stmt2 = con2.createStatement();
                                 ResultSet rs2 = stmt2.executeQuery("SELECT MAX(token_no) FROM orders");
                                 while(rs2.next())
@@ -72,7 +72,7 @@ class Order
                                     try
                                     {
                                         Class.forName("com.mysql.jdbc.Driver");
-                                        Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/bfc","root","Anamika12F");
+                                        Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/bfc","root","Passwrd");
                                         String sql = "insert into orders(TOKEN_NO, REGNO, FOODID, QTY, AMT_PAID) values(?, ?, ?, ?, ?);"; 
                                         PreparedStatement statement = conn.prepareStatement(sql); 
                                         statement.setInt(1,t); 
@@ -122,7 +122,7 @@ class Menu implements ActionListener
         {
             int i=2;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bfc","root","Anamika12F");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bfc","root","Passwrd");
             Statement stmt=con.createStatement();
             ResultSet rs=stmt.executeQuery("select * from menu");
             while(rs.next())
@@ -183,7 +183,7 @@ class SignUp
                     String n=name.getText();
                     String p=pass.getText();
                     Class.forName("com.mysql.jdbc.Driver");
-                    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bfc","root","Anamika12F");
+                    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bfc","root","Passwrd");
                     Statement stmt=con.createStatement();
                     ResultSet rs=stmt.executeQuery("select * from students");
                     while(rs.next())
@@ -247,7 +247,7 @@ class Login
                 try
                 {
                     Class.forName("com.mysql.jdbc.Driver");
-                    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bfc","root","Anamika12F");
+                    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bfc","root","Passwrd");
                     Statement stmt=con.createStatement();
                     ResultSet rs=stmt.executeQuery("select * from students");
                     while(rs.next())
