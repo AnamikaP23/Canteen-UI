@@ -17,7 +17,7 @@ class Deliv implements ActionListener
         {
             int i=15+2;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bfc","root","Anamika12F");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bfc","root","Passwrd");
             Statement stmt=con.createStatement();
             ResultSet rs=stmt.executeQuery("SELECT  o.TOKEN_NO, m.FNAME, o.QTY, o.DELIVERED FROM orders o JOIN menu m ON o.FOODID = m.FOODID ORDER BY o.TOKEN_NO;");
             rs.next();
@@ -57,7 +57,7 @@ class Deliv implements ActionListener
             JButton btn = (JButton) src;
             String text = btn.getText();
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/bfc","root","Anamika12F");
+            Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/bfc","root","Passwrd");
             String sql = "UPDATE orders SET DELIVERED='YES' WHERE TOKEN_NO=?"; 
             PreparedStatement statement = conn.prepareStatement(sql); 
             statement.setInt(1,Integer.parseInt(text));
