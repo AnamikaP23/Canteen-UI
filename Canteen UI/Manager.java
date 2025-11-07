@@ -38,7 +38,7 @@ class Add
                     String n=name.getText();
                     float c=Float.parseFloat(cost.getText());
                     Class.forName("com.mysql.jdbc.Driver");
-                    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bfc","root","Anamika12F");
+                    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bfc","root","Passwrd");
                     Statement stmt=con.createStatement();
                     ResultSet rs=stmt.executeQuery("select * from menu");
                     while(rs.next())
@@ -96,7 +96,7 @@ class Update
         try
         {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bfc","root","Anamika12F");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bfc","root","Passwrd");
             Statement stmt=con.createStatement();
             ResultSet rs=stmt.executeQuery("select * from menu");
             while(rs.next())
@@ -128,7 +128,7 @@ class Update
                     String n=name.getText();
                     float c=Float.parseFloat(cost.getText());
                     Class.forName("com.mysql.jdbc.Driver");
-                    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bfc","root","Anamika12F");
+                    Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bfc","root","Passwrd");
                     String sql = "UPDATE menu SET foodid=?,fname=?,price=? WHERE fname=?"; 
                     PreparedStatement statement = con.prepareStatement(sql); 
                     statement.setInt(1,i); 
@@ -183,7 +183,7 @@ class Order
             a5.setBounds(5,5+i,350,15);
             i+=(15+2);
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bfc","root","Anamika12F");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bfc","root","Passwrd");
             Statement stmt=con.createStatement();
             ResultSet rs=stmt.executeQuery("SELECT  o.TOKEN_NO, s.NAME, m.FNAME, o.QTY, o.AMT_PAID, o.ORDER_TIME, o.DELIVERED FROM orders o JOIN students s ON o.REGNO = s.REGNO JOIN menu m ON o.FOODID = m.FOODID ORDER BY o.TOKEN_NO;");
             rs.next();
@@ -235,7 +235,7 @@ class Menu implements ActionListener
         {
             int i=2;
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bfc","root","Anamika12F");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/bfc","root","Passwrd");
             Statement stmt=con.createStatement();
             ResultSet rs=stmt.executeQuery("select * from menu");
             while(rs.next())
